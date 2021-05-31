@@ -1,10 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 import vector from '../../img/vector.png';
 import vector2 from '../../img/vector2.png';
 
 import './mainApp.scss';
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+});
+
 const MainPage = () => {
+  const [data, setData] = useState([
+    {
+      id: 1,
+      label: 'Solimo Coffee Beans 2 kg',
+      img: '../../img/MainPage/best1.png',
+      price: 10.73,
+    },
+    {
+      id: 2,
+      label: 'Presto Coffee Beans 1 kg',
+      img: '../../img/MainPage/best2.png',
+      price: 15.99,
+    },
+    {
+      id: 3,
+      label: 'AROMISTICO Coffee 1 kg',
+      img: '../../img/MainPage/best3.png',
+      price: 6.99,
+    },
+  ]);
+
+  const classes = useStyles();
+
+  const bestList = () => {
+    setData.map((item, id) => {
+      const { label, img, price } = item;
+      return (
+        <Card key={id} className={classes.root}>
+          <CardActionArea>
+            <CardMedia
+              component='img'
+              alt='Contemplative Reptile'
+              height='140'
+              image={img}
+              title='Contemplative Reptile'
+            />
+            <CardContent>
+              <Typography gutterBottom variant='h5' component='h2'>
+                {label}
+              </Typography>
+              <Typography gutterBottom variant='h5' component='h2'>
+                {price}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      );
+    });
+  };
+
   return (
     <div className='about__main'>
       <div className='about__introduction'>
@@ -51,6 +116,7 @@ const MainPage = () => {
           </div>
         </div>
       </div>
+      <div className='about__best'>{bestList}</div>
     </div>
   );
 };

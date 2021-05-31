@@ -96,4 +96,12 @@
   &__moto-line-second {
     border: 1px solid #000000;
   }
+  &__best {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../img/MainPage/paper.png);
+    background-position: center;
+    background-size: cover;
+    height: 789.68px;
+  }
 }
