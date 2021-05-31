@@ -22,19 +22,19 @@ const MainPage = () => {
     {
       id: 1,
       label: 'Solimo Coffee Beans 2 kg',
-      img: '../../img/MainPage/best1.png',
+      img: '../../../image/best1.png',
       price: 10.73,
     },
     {
       id: 2,
       label: 'Presto Coffee Beans 1 kg',
-      img: '../../img/MainPage/best2.png',
+      img: '../../../image/best2.png',
       price: 15.99,
     },
     {
       id: 3,
       label: 'AROMISTICO Coffee 1 kg',
-      img: '../../img/MainPage/best3.png',
+      img: '../../../image/best3.png',
       price: 6.99,
     },
   ];
