@@ -1,21 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 
 import vector from '../../img/vector.png';
 import vector2 from '../../img/vector2.png';
 
 import './mainApp.scss';
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-});
 
 const MainPage = () => {
   const data = [
@@ -39,30 +27,18 @@ const MainPage = () => {
     },
   ];
 
-  const classes = useStyles();
-
   const bestList = data.map((item) => {
     const { id, label, img, price } = item;
     return (
-      <Card key={id} className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            component='img'
-            alt={label}
-            height='140'
-            image={img}
-            title={label}
-          />
-          <CardContent>
-            <Typography gutterBottom variant='h5' component='h2'>
-              {label}
-            </Typography>
-            <Typography gutterBottom variant='h5' component='h2'>
-              {price}$
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+      <div key={id} className='about__best-card'>
+        <div className='about__best-img'>
+          <img src={img} alt={label}></img>
+        </div>
+        <div className='about__best-content'>
+          <p className='about__best-label'>{label}</p>
+          <p className='about__best-price'>{price}$</p>
+        </div>
+      </div>
     );
   });
 
@@ -112,7 +88,12 @@ const MainPage = () => {
           </div>
         </div>
       </div>
-      <div className='about__best'>{bestList}</div>
+      <div className='about__best'>
+        <div className='about__description'>
+          <p className='about__us-subtitle subtitle'>Our best</p>
+        </div>
+        <div className='about__best-wrapper'>{bestList}</div>
+      </div>
     </div>
   );
 };
