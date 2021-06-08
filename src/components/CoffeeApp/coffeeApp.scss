@@ -1,0 +1,17 @@
+.coffee {
+  &__container {
+    background: #ffffff;
+  }
+  &__introduction {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../img/CoffeePage/header.png);
+    background-position: center;
+    background-size: cover;
+  }
+  &__text {
+    text-shadow: none;
+    height: 46px;
+    margin: 130px 0 84px;
+  }
+}

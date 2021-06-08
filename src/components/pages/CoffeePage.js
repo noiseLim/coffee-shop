@@ -1,7 +1,12 @@
 import React from 'react';
+import CoffeeApp from '../CoffeeApp/CoffeeApp';
 
 const CoffeeItem = () => {
-  return <div>CoffeeItem</div>;
+  return (
+    <div>
+      <CoffeeApp />
+    </div>
+  );
 };
 
 export default CoffeeItem;
