@@ -1,18 +1,20 @@
 import React from 'react';
-import './AboutElement';
+import './aboutElement.scss';
 
 const AboutElement = ({ title, vector, description }) => {
   return (
-    <div className='about__us'>
-      <div className='about__description'>
-        <p className='about__us-subtitle subtitle'>{title}</p>
-        <div className='about__line'>
-          <hr className='about__moto-line-second' />
-          <img src={vector} alt={'vector2'} />
-          <hr className='about__moto-line-second' />
+    <div className='about'>
+      <div className='about__body'>
+        <div className='about__header'>
+          <p className='about__title title'>{title}</p>
+          <div className='about__line'>
+            <hr className='about__moto-line-second' />
+            <img src={vector} alt={'vector2'} />
+            <hr className='about__moto-line-second' />
+          </div>
         </div>
-        <div className='about__description-text'>
-          <p>{description}</p>
+        <div className='about__description'>
+          <div dangerouslySetInnerHTML={description} />
         </div>
       </div>
     </div>

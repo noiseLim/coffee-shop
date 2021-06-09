@@ -1,23 +1,32 @@
 .about {
-  &__us {
-    height: 520px;
+  &__body {
     background: #ffffff;
+    padding: 80px 0 101px;
   }
-  &__description {
-    max-width: 589px;
+  &__header {
     margin: 0 auto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    padding-top: 80px;
   }
-  &__us-subtitle {
+  &__title {
     height: 26px;
     font-size: 24px;
+    line-height: 35px;
     color: #000000;
   }
+  &__description {
+    width: 589px;
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+
   &__line {
     display: flex;
     justify-content: center;

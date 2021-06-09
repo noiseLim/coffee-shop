@@ -1,4 +1,5 @@
 import React from 'react';
+import AboutElement from '../../utils/AboutElement/AboutElement';
 
 import vector from '../../img/vector.png';
 import vector2 from '../../img/vector2.png';
@@ -27,72 +28,70 @@ const MainPage = () => {
     },
   ];
 
+  const title = 'About Us';
+
+  function description() {
+    return {
+      __html: `Extremity sweetness difficult behaviour he of. On disposal of as
+    landlord horrible. Afraid at highly months do things on at.
+    Situation recommend objection do intention so questions. As
+    greatly removed calling pleased improve an. Last ask him cold feel
+    met spot shy want. Children me laughing we prospect answered
+    followed. At it went is song that held help face.<br />
+    <br />
+    Now residence dashwoods she excellent you. Shade being under his
+    bed her, Much read on as draw. Blessing for ignorant exercise any
+    yourself unpacked. Pleasant horrible but confined day end
+    marriage. Eagerness furniture set preserved far recommend. Did
+    even but nor are most gave hope. Secure active living depend son
+    repair day ladies now.`,
+    };
+  }
+
   const bestList = data.map((item) => {
     const { id, label, img, price } = item;
     return (
-      <div key={id} className='about__best-card'>
-        <div className='about__best-img'>
+      <div key={id} className='main__best-card'>
+        <div className='main__best-img'>
           <img src={img} alt={label}></img>
         </div>
-        <div className='about__best-content'>
-          <p className='about__best-label'>{label}</p>
-          <p className='about__best-price'>{price}$</p>
+        <div className='main__best-content'>
+          <p className='main__best-label'>{label}</p>
+          <p className='main__best-price'>{price}$</p>
         </div>
       </div>
     );
   });
 
   return (
-    <div className='about__main'>
-      <div className='about__introduction'>
-        <div className='about__text'>
+    <div className='main'>
+      <div className='main__introduction'>
+        <div className='main__text'>
           <p className='title'>Everything You Love About Coffee</p>
-          <div className='about__line'>
-            <hr className='about__moto-line' />
+          <div className='main__line'>
+            <hr className='main__moto-line' />
             <img src={vector} alt={'vector'} />
-            <hr className='about__moto-line' />
+            <hr className='main__moto-line' />
           </div>
-          <p className='about__subtitle subtitle'>
+          <p className='main__subtitle subtitle'>
             We makes every day full of energy and taste
           </p>
-          <p className='about__subtitle-second subtitle'>
+          <p className='main__subtitle-second subtitle'>
             Want to try our beans?
           </p>
           <button className='about__btn'>More</button>
         </div>
       </div>
-      <div className='about__us'>
-        <div className='about__description'>
-          <p className='about__us-subtitle subtitle'>About Us</p>
-          <div className='about__line'>
-            <hr className='about__moto-line-second' />
-            <img src={vector2} alt={'vector2'} />
-            <hr className='about__moto-line-second' />
-          </div>
-          <div className='about__description-text'>
-            <p>
-              Extremity sweetness difficult behaviour he of. On disposal of as
-              landlord horrible. Afraid at highly months do things on at.
-              Situation recommend objection do intention so questions. As
-              greatly removed calling pleased improve an. Last ask him cold feel
-              met spot shy want. Children me laughing we prospect answered
-              followed. At it went is song that held help face. <br />
-              <br />
-              Now residence dashwoods she excellent you. Shade being under his
-              bed her, Much read on as draw. Blessing for ignorant exercise any
-              yourself unpacked. Pleasant horrible but confined day end
-              marriage. Eagerness furniture set preserved far recommend. Did
-              even but nor are most gave hope. Secure active living depend son
-              repair day
-            </p>
-          </div>
+      <AboutElement
+        title={title}
+        vector={vector2}
+        description={description()}
+      />
+      <div className='main__best'>
+        <div className='main__description'>
+          <p className='main__us-subtitle subtitle'>Our best</p>
         </div>
-      </div>
-      <div className='about__best'>
-        <div className='about__description'>
-          <p className='about__us-subtitle subtitle'>Our best</p>
-        </div>
-        <div className='about__best-wrapper'>{bestList}</div>
+        <div className='main__best-wrapper'>{bestList}</div>
       </div>
     </div>
   );
