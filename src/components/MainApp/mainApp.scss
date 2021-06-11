@@ -1,15 +1,19 @@
-// .title {
-//   height: 44px;
-//   font-size: 40px;
-//   color: #ffffff;
-//   line-height: 58px;
-//   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// }
 .subtitle {
   height: 27px;
   font-size: 24px;
   color: #ffffff;
   line-height: 35px;
+}
+.title {
+  height: 44px;
+  font-size: 40px;
+  color: #ffffff;
+  line-height: 58px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.line {
+  border: 1px solid #000000;
+  box-shadow: none;
 }
 .main {
   background: #ffffff;
@@ -19,7 +23,7 @@
     background-image: url(../../img/MainPage/desk.png);
     background-position: center;
     background-size: cover;
-    height: 640px;
+    padding: 181px 0 201px;
   }
   &__text {
     display: flex;
@@ -28,29 +32,10 @@
     align-items: center;
   }
   &__subtitle {
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
-  &__subtitle-second {
-    height: 35px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 18px;
-  }
-  &__line {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__separator-wrapper {
     padding: 35px 40px 49px;
-    img {
-      position: absolute;
-    }
-  }
-  &__moto-line,
-  &__moto-line-second {
-    width: 60px;
-    height: 0px;
-    border: 1px solid #ffffff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    margin: 0 40px;
   }
   &__btn {
     width: 120px;
@@ -70,33 +55,17 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
+    margin-top: 18px;
   }
-  // &__us {
-  //   height: 520px;
-  //   background: #ffffff;
-  // }
-  // &__description {
-  //   max-width: 589px;
-  //   margin: 0 auto;
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   font-size: 14px;
-  //   line-height: 20px;
-  //   text-align: center;
-  //   padding-top: 80px;
-  // }
-  &__us-subtitle {
+  &__best-subtitle {
     height: 26px;
-    font-size: 24px;
     color: #000000;
-  }
-  &__moto-line-second {
-    border: 1px solid #000000;
   }
   &__best {
     background-image: url(../../img/MainPage/paper.png);
     background-position: center;
     background-size: cover;
+    padding: 80px 0 110px;
   }
   &__best-wrapper {
     max-width: 802px;
@@ -106,11 +75,11 @@
     margin-left: auto;
     margin-right: auto;
     min-height: 75%;
+    padding-top: 39px;
   }
   &__best-card {
     width: 220px;
     height: 240px;
-    margin: 39px 0 110px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 8px;
   }

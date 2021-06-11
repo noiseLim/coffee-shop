@@ -5,6 +5,7 @@ import vector from '../../img/vector.png';
 import vector2 from '../../img/vector2.png';
 
 import './mainApp.scss';
+import Separator from '../../utils/Separator/Separator';
 
 const MainPage = () => {
   const data = [
@@ -68,18 +69,14 @@ const MainPage = () => {
       <div className='main__introduction'>
         <div className='main__text'>
           <p className='title'>Everything You Love About Coffee</p>
-          <div className='main__line'>
-            <hr className='main__moto-line' />
-            <img src={vector} alt={'vector'} />
-            <hr className='main__moto-line' />
+          <div className='main__separator-wrapper'>
+            <Separator vector={vector} />
           </div>
-          <p className='main__subtitle subtitle'>
+          <p className='subtitle'>
             We makes every day full of energy and taste
           </p>
-          <p className='main__subtitle-second subtitle'>
-            Want to try our beans?
-          </p>
-          <button className='about__btn'>More</button>
+          <p className='main__subtitle subtitle'>Want to try our beans?</p>
+          <button className='main__btn'>More</button>
         </div>
       </div>
       <AboutElement
@@ -88,8 +85,8 @@ const MainPage = () => {
         description={description()}
       />
       <div className='main__best'>
-        <div className='main__description'>
-          <p className='main__us-subtitle subtitle'>Our best</p>
+        <div className='main__text'>
+          <p className='main__best-subtitle subtitle'>Our best</p>
         </div>
         <div className='main__best-wrapper'>{bestList}</div>
       </div>
