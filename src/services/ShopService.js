@@ -1,18 +1,16 @@
-import { COFFEE_ROUTE } from '../utils/consts';
-
 export default class ShopService {
-  _apiBase = 'http://localhost:3000';
+  _apiBase = 'http://localhost:3001';
 
   async getResource(url) {
     const res = await fetch(`${this._apiBase}${url}`);
 
     if (!res.ok) {
-      throw new Error(`Could not fetch ${url}` + `, received ${res.status}`);
+      throw new Error(`Could not fetch ${url}, received ${res.status}`);
     }
     return await res.json();
   }
 
   async getProductItems() {
-    return await this.getResource(COFFEE_ROUTE);
+    return await this.getResource(`/products/`);
   }
 }

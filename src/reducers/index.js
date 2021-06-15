@@ -1,3 +1,7 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+import coffeeAppReducer from '../components/CoffeeApp/coffeeAppSlice';
+
+export default combineReducers({
+  coffeeApp: coffeeAppReducer,
+});

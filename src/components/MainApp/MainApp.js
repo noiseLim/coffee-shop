@@ -79,11 +79,13 @@ const MainPage = () => {
           <button className='main__btn'>More</button>
         </div>
       </div>
-      <AboutElement
-        title={title}
-        vector={vector2}
-        description={description()}
-      />
+      <div className='main__about-wrapper'>
+        <AboutElement
+          title={title}
+          vector={vector2}
+          description={description()}
+        />
+      </div>
       <div className='main__best'>
         <div className='main__text'>
           <p className='main__best-subtitle subtitle'>Our best</p>
