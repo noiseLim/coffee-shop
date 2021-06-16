@@ -13,4 +13,7 @@ export default class ShopService {
   async getProductItems(searchValue) {
     return await this.getResource(`/products?q=${searchValue}`);
   }
+  async getOneItem(id) {
+    return await this.getResource(`/our_coffee/` + id);
+  }
 }

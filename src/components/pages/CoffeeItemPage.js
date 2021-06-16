@@ -1,7 +1,8 @@
 import React from 'react';
+import ProductPage from '../ProductPage/ProductPage';
 
 const CoffeeItemPage = () => {
-  return <div>CoffeeItemPage</div>;
+  return <ProductPage />;
 };
 
 export default CoffeeItemPage;
