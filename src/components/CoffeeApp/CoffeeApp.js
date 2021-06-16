@@ -16,17 +16,16 @@ import girl from '../../img/CoffeePage/girl.png';
 import './coffeeApp.scss';
 
 const CoffeeApp = ({ ShopService }) => {
-  const [value, setValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
   const productItems = useSelector((state) => state.coffeeApp.products);
-  console.log(productItems);
 
   useEffect(() => {
     dispatch(productRequested());
-    ShopService.getProductItems()
+    ShopService.getProductItems(searchValue)
       .then((res) => dispatch(productLoaded(res)))
       .catch(() => dispatch(productError()));
-  }, []);
+  }, [searchValue]);
 
   const title = 'About our beans';
   const styleWrapper = { paddingBottom: 40 };
@@ -80,18 +79,32 @@ const CoffeeApp = ({ ShopService }) => {
           <input
             name='Looking for'
             placeholder='start typing here...'
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             className='coffee__filter-input'
           />
         </div>
         <div className='coffee__filter-container'>
           <p style={{ margin: '0 35px' }}>Or filter</p>
-          <button className='button__left button'>Brazil</button>
-          <button className='button'>Kenya</button>
-          <button className='button__right button'>Columbia</button>
+          <button
+            onClick={() => setSearchValue('Brazil')}
+            className='button__left button'
+          >
+            Brazil
+          </button>
+          <button onClick={() => setSearchValue('Kenya')} className='button'>
+            Kenya
+          </button>
+          <button
+            onClick={() => setSearchValue('Columbia')}
+            className='button__right button'
+          >
+            Columbia
+          </button>
         </div>
-        <div>
+      </div>
+      <div className='coffee__card-container'>
+        <div className='coffee__card-wrapper'>
           <View items={items} />
         </div>
       </div>

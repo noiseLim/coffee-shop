@@ -11,19 +11,19 @@ const MainPage = () => {
   const data = [
     {
       id: 1,
-      label: 'Solimo Coffee Beans 2 kg',
+      title: 'Solimo Coffee Beans 2 kg',
       img: '../../../image/best1.png',
       price: 10.73,
     },
     {
       id: 2,
-      label: 'Presto Coffee Beans 1 kg',
+      title: 'Presto Coffee Beans 1 kg',
       img: '../../../image/best2.png',
       price: 15.99,
     },
     {
       id: 3,
-      label: 'AROMISTICO Coffee 1 kg',
+      title: 'AROMISTICO Coffee 1 kg',
       img: '../../../image/best3.png',
       price: 6.99,
     },
@@ -50,15 +50,15 @@ const MainPage = () => {
   }
 
   const bestList = data.map((item) => {
-    const { id, label, img, price } = item;
+    const { id, title, img, price } = item;
     return (
-      <div key={id} className='main__best-card'>
-        <div className='main__best-img'>
-          <img src={img} alt={label}></img>
+      <div key={id} className='card'>
+        <div className='card__img'>
+          <img src={img} alt={title}></img>
         </div>
-        <div className='main__best-content'>
-          <p className='main__best-label'>{label}</p>
-          <p className='main__best-price'>{price}$</p>
+        <div className='card__content'>
+          <p className='card__content-title'>{title}</p>
+          <p className='card__content-price'>{price}$</p>
         </div>
       </div>
     );

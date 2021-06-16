@@ -10,7 +10,7 @@ export default class ShopService {
     return await res.json();
   }
 
-  async getProductItems() {
-    return await this.getResource(`/products/`);
+  async getProductItems(searchValue) {
+    return await this.getResource(`/products?q=${searchValue}`);
   }
 }

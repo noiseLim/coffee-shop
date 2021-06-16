@@ -102,4 +102,17 @@ input {
     align-items: center;
     margin: 0 20px;
   }
+  &__card-container {
+    background: #ffffff;
+    padding-bottom: 30px;
+  }
+  &__card-wrapper {
+    max-width: 802px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
