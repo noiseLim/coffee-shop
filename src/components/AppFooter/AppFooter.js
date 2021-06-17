@@ -11,6 +11,7 @@ import Separator from '../../utils/Separator/Separator';
 const useStyles = makeStyles({
   container: {
     background: '#ffffff',
+    height: 147,
   },
   grid: {
     paddingTop: 30,

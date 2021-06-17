@@ -8,16 +8,18 @@ import { MAIN_ROUTE } from '../../utils/consts';
 
 const App = () => {
   return (
-    <div style={{ minHeight: 'calc(100vh - 150px)' }}>
-      <AppHeader />
-      <Switch>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} path={path} component={Component} exact />
-        ))}
-        <Redirect to={MAIN_ROUTE} />
-      </Switch>
+    <>
+      <div style={{ minHeight: 'calc(100vh - 147px)' }}>
+        <AppHeader />
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} path={path} component={Component} exact />
+          ))}
+          <Redirect to={MAIN_ROUTE} />
+        </Switch>
+      </div>
       <AppFooter />
-    </div>
+    </>
   );
 };
 

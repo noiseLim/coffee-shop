@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import HeaderElement from '../../utils/HeaderElement';
 import AboutElement from '../../utils/AboutElement/AboutElement';
 import CoffeeCardItem from '../CoffeeCardItem/CoffeeCardItem';
-import WithShopService from '../hoc';
 import {
   productLoaded,
   productRequested,
   productError,
-} from './coffeeAppSlice';
-import HeaderElement from '../../utils/HeaderElement';
+} from '../CoffeeApp/coffeeAppSlice';
+import WithShopService from '../hoc';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 
+import image from '../../img/header2.png';
+import coffeeCup from '../../img/coffeeCup.png';
 import vector2 from '../../img/vector2.png';
-import girl from '../../img/CoffeePage/girl.png';
 
-import './coffeeApp.scss';
-
-const CoffeeApp = ({ ShopService }) => {
-  const [searchValue, setSearchValue] = useState('');
-  const dispatch = useDispatch();
+const GoodsApp = ({ ShopService }) => {
   const productItems = useSelector((state) => state.coffeeApp.products);
   const loading = useSelector((state) => state.coffeeApp.loading);
   const error = useSelector((state) => state.coffeeApp.error);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(productRequested());
-    ShopService.getProductItems(searchValue)
+    ShopService.getProductItems('')
       .then((res) => dispatch(productLoaded(res)))
       .catch(() => dispatch(productError()));
-  }, [searchValue]);
+  }, []);
 
   if (loading) {
     return <Spinner />;
@@ -39,8 +37,11 @@ const CoffeeApp = ({ ShopService }) => {
     return <Error />;
   }
 
-  const styleWrapper = { paddingBottom: 40 };
+  const imageHeader = {
+    backgroundImage: `url(${image})`,
+  };
   const styleWidth = { width: 346 };
+  const styleWrapper = { paddingBottom: 40 };
 
   function description() {
     return {
@@ -63,14 +64,14 @@ const CoffeeApp = ({ ShopService }) => {
   };
 
   return (
-    <div className='coffee__container'>
-      <HeaderElement titleHeader={'Our Coffee'} />
+    <div style={{ background: '#ffffff' }}>
+      <HeaderElement titleHeader={'For your pleasure'} style={imageHeader} />
       <div className='coffee__beans'>
         <div className='coffee__beans-pic'>
-          <img src={girl} alt={'girl'} />
+          <img src={coffeeCup} alt={'cup'} />
         </div>
         <AboutElement
-          title={'About our beans'}
+          title={'About our goods'}
           vector={vector2}
           description={description()}
           styleWrapper={styleWrapper}
@@ -79,36 +80,6 @@ const CoffeeApp = ({ ShopService }) => {
       </div>
       <div className='coffee__separator'>
         <hr className='coffee__separator-line' />
-      </div>
-      <div className='coffee__filter'>
-        <div className='coffee__filter-container'>
-          <p style={{ margin: '0 19px' }}>Looking for</p>
-          <input
-            name='Looking for'
-            placeholder='start typing here...'
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            className='coffee__filter-input'
-          />
-        </div>
-        <div className='coffee__filter-container'>
-          <p style={{ margin: '0 35px' }}>Or filter</p>
-          <button
-            onClick={() => setSearchValue('Brazil')}
-            className='button__left button'
-          >
-            Brazil
-          </button>
-          <button onClick={() => setSearchValue('Kenya')} className='button'>
-            Kenya
-          </button>
-          <button
-            onClick={() => setSearchValue('Columbia')}
-            className='button__right button'
-          >
-            Columbia
-          </button>
-        </div>
       </div>
       <div className='coffee__card-container'>
         <div className='coffee__card-wrapper'>
@@ -119,4 +90,4 @@ const CoffeeApp = ({ ShopService }) => {
   );
 };
 
-export default WithShopService()(CoffeeApp);
+export default WithShopService()(GoodsApp);

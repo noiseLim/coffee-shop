@@ -5,6 +5,7 @@ import WithShopService from '../hoc';
 import aromisticoItemFoto from '../../img/aromisticoItemFoto.png';
 import Separator from '../../utils/Separator/Separator';
 import vector2 from '../../img/vector2.png';
+import HeaderElement from '../../utils/HeaderElement';
 
 import './productPage.scss';
 
@@ -25,12 +26,7 @@ const ProductPage = ({ ShopService }) => {
 
   return (
     <div className='product__container'>
-      <div className='coffee__introduction'>
-        <div className='coffee__text'>
-          <p className='title'>Our Coffee</p>
-        </div>
-      </div>
-
+      <HeaderElement titleHeader={'Our Coffee'} />
       <div className='product__current'>
         <div className='product__pic'>
           <img src={aromisticoItemFoto} alt={'aromistico'} />

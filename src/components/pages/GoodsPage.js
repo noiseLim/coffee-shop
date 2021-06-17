@@ -1,7 +1,8 @@
 import React from 'react';
+import GoodsApp from '../GoodsApp/GoodsApp';
 
 const GoodsPage = () => {
-  return <div>GoodsPage</div>;
+  return <GoodsApp />;
 };
 
 export default GoodsPage;
