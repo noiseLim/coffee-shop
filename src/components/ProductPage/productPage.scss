@@ -1,0 +1,38 @@
+.product {
+  &__container {
+    background: #ffffff;
+  }
+  &__current {
+    display: flex;
+    justify-content: center;
+    padding: 70px 0 30px;
+  }
+  &__pic {
+    margin-right: 42px;
+  }
+  &__header {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    padding-top: 8px;
+  }
+  &__title {
+    height: 26px;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+  }
+  &__separator-wrapper {
+    padding: 36px 0 40px;
+  }
+  &__description {
+    width: 418px;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+  &__price {
+    font-size: 24px;
+  }
+}

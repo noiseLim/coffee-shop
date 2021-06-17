@@ -5,7 +5,7 @@ export default class ShopService {
     const res = await fetch(`${this._apiBase}${url}`);
 
     if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, received ${res.status}`);
+      throw new Error(`Could not fetch ${url}` + `, received ${res.status}`);
     }
     return await res.json();
   }
@@ -14,6 +14,6 @@ export default class ShopService {
     return await this.getResource(`/products?q=${searchValue}`);
   }
   async getOneItem(id) {
-    return await this.getResource(`/our_coffee/` + id);
+    return await this.getResource(`/products/` + id);
   }
 }

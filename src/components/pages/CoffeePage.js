@@ -1,7 +1,7 @@
 import React from 'react';
 import CoffeeApp from '../CoffeeApp/CoffeeApp';
 
-const CoffeeItem = () => {
+const CoffeePage = () => {
   return (
     <div>
       <CoffeeApp />
@@ -9,4 +9,4 @@ const CoffeeItem = () => {
   );
 };
 
-export default CoffeeItem;
+export default CoffeePage;
