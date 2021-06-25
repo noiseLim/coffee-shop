@@ -20,6 +20,7 @@ import './coffeeApp.scss';
 
 const CoffeeApp = ({ ShopService }) => {
   const [searchValue, setSearchValue] = useState('');
+  const [value, setValue] = useState({ width: 346 });
   const dispatch = useDispatch();
   const productItems = useSelector((state) => state.coffeeApp.products);
   const loading = useSelector((state) => state.coffeeApp.loading);
@@ -32,6 +33,12 @@ const CoffeeApp = ({ ShopService }) => {
       .catch(() => dispatch(productError()));
   }, [searchValue]);
 
+  useEffect(() => {
+    setValue(window.screen.availWidth <= 411 ? { width: 600 } : { width: 346 });
+  }, []);
+
+  console.log(value);
+
   if (loading) {
     return <Spinner />;
   }
@@ -40,7 +47,7 @@ const CoffeeApp = ({ ShopService }) => {
   }
 
   const styleWrapper = { paddingBottom: 40 };
-  const styleWidth = { width: 346 };
+  // const styleWidth = { width: 346 };
 
   function description() {
     return {
@@ -74,7 +81,8 @@ const CoffeeApp = ({ ShopService }) => {
           vector={vector2}
           description={description()}
           styleWrapper={styleWrapper}
-          styleWidth={styleWidth}
+          // styleWidth={styleWidth}
+          styleWidth={value}
         />
       </div>
       <div className='coffee__separator'>

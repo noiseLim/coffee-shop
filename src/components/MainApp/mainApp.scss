@@ -112,3 +112,31 @@
     padding: 80px 0 101px;
   }
 }
+
+@media screen and (max-width: 411px) {
+  .main {
+    &__text {
+      .subtitle {
+        font-size: 30px;
+      }
+    }
+    &__best-wrapper {
+      .card {
+        margin: 80px 0;
+        transform: scale(1.5, 1.5);
+      }
+    }
+    &__btn {
+      width: 240px;
+      height: 60px;
+      font-size: 24px;
+    }
+    &__best-wrapper {
+      max-width: 802px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
