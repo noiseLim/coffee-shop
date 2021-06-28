@@ -18,9 +18,13 @@ import girl from '../../img/CoffeePage/girl.png';
 
 import './coffeeApp.scss';
 
+const getStyleWidth = () => {
+  return window.screen.availWidth <= 411 ? { width: 600 } : { width: 346 };
+};
+
 const CoffeeApp = ({ ShopService }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [value, setValue] = useState({ width: 346 });
+  const [styleWidth, setStyleWidth] = useState(getStyleWidth());
   const dispatch = useDispatch();
   const productItems = useSelector((state) => state.coffeeApp.products);
   const loading = useSelector((state) => state.coffeeApp.loading);
@@ -34,10 +38,13 @@ const CoffeeApp = ({ ShopService }) => {
   }, [searchValue]);
 
   useEffect(() => {
-    setValue(window.screen.availWidth <= 411 ? { width: 600 } : { width: 346 });
-  }, []);
+    function handleResize() {
+      setStyleWidth(getStyleWidth());
+    }
 
-  console.log(value);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (loading) {
     return <Spinner />;
@@ -47,7 +54,6 @@ const CoffeeApp = ({ ShopService }) => {
   }
 
   const styleWrapper = { paddingBottom: 40 };
-  // const styleWidth = { width: 346 };
 
   function description() {
     return {
@@ -81,8 +87,7 @@ const CoffeeApp = ({ ShopService }) => {
           vector={vector2}
           description={description()}
           styleWrapper={styleWrapper}
-          // styleWidth={styleWidth}
-          styleWidth={value}
+          styleWidth={styleWidth}
         />
       </div>
       <div className='coffee__separator'>
