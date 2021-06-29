@@ -5,8 +5,9 @@ const Spinner = () => {
   const spinnerStyle = {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     padding: 50,
+    height: 600,
   };
 
   return (
