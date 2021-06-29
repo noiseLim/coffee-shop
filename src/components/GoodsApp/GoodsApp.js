@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import HeaderElement from '../../utils/HeaderElement';
 import AboutElement from '../../utils/AboutElement/AboutElement';
-import CoffeeCardItem from '../CoffeeCardItem/CoffeeCardItem';
 import {
   productLoaded,
   productRequested,
@@ -12,13 +11,13 @@ import {
 import WithShopService from '../hoc';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
+import ProductList from '../ProductList/ProductList'
 
 import image from '../../img/header2.png';
 import coffeeCup from '../../img/coffeeCup.png';
 import vector2 from '../../img/vector2.png';
 
 const GoodsApp = ({ ShopService }) => {
-  const productItems = useSelector((state) => state.coffeeApp.products);
   const loading = useSelector((state) => state.coffeeApp.loading);
   const error = useSelector((state) => state.coffeeApp.error);
   const dispatch = useDispatch();
@@ -55,14 +54,6 @@ const GoodsApp = ({ ShopService }) => {
     };
   }
 
-  const items = productItems.map((productItem) => {
-    return <CoffeeCardItem key={productItem.id} productItem={productItem} />;
-  });
-
-  const View = ({ items }) => {
-    return items;
-  };
-
   return (
     <div style={{ background: '#ffffff' }}>
       <HeaderElement titleHeader={'For your pleasure'} style={imageHeader} />
@@ -81,11 +72,7 @@ const GoodsApp = ({ ShopService }) => {
       <div className='coffee__separator'>
         <hr className='coffee__separator-line' />
       </div>
-      <div className='coffee__card-container'>
-        <div className='coffee__card-wrapper'>
-          <View items={items} />
-        </div>
-      </div>
+      <ProductList />
     </div>
   );
 };
